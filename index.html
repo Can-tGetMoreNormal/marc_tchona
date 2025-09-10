@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1" />
 </head>
 <body>
     <!-- Header Section -->
@@ -16,26 +16,54 @@
     <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p>I thrive on finding innovative solutions to challenges and am committed to continuous learning and skill development. In my free time, I enjoy playing table tennis, chess, and the keyboard, which provide unique opportunities to exercise discipline and creativity. These hobbies not only keep me engaged but also contribute to my growth as a problem-solver and thinker.</p>
+        <p>
+            I thrive on finding innovative solutions to challenges and am committed to continuous learning
+            and skill development. In my free time, I enjoy playing table tennis, chess, and the keyboard,
+            which provide unique opportunities to exercise discipline and creativity. These hobbies not only
+            keep me engaged but also contribute to my growth as a problem-solver and thinker.
+        </p>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
+
         <div class="project">
             <h3>Smart-Cart Project</h3>
-            <p>I, along with a team of four other students, developed a Smart Cart prototype for automated
-                checkout for our final project as part of the Mechatronics coursework.</p>
-            <a href="documents/Portfolio.pdf" target="_blank" download>Smart Cart Project</a>
+            <p>
+                I, along with a team of four other students, developed a Smart Cart prototype for automated
+                checkout for our final project as part of the Mechatronics coursework.
+            </p>
+            <a href="documents/Smart Cart Project.pdf" target="_blank" download>Smart Cart Project</a>
         </div>
+
+        <div class="project">
+            <h3>Inventory Project</h3>
+            <p>
+                I developed an OCR-driven inventory management system to process purchase orders in a
+                specialized PDF format.
+            </p>
+            <a href="documents/Inventory Project.pdf" target="_blank" download>Inventory Project</a>
+        </div>
+
         <section id="video">
             <h2>Project Demonstration</h2>
             <video width="300" controls>
-                <source src="documents/gif.mp4" type="video/mp4">
-        
+                <source src="documents/gif.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
             </video>
+
+            <!-- Image under the video -->
+            <figure class="media-figure">
+                <img
+                    src="documents/UI_Inventory_Project.png"
+                    alt="UI of the Inventory Project"
+                    loading="lazy"
+                    class="project-image"
+                />
+                <figcaption class="caption">UI of the Inventory Project</figcaption>
+            </figure>
         </section>
-        
         <!-- Add more projects as needed -->
     </section>
 
@@ -45,21 +73,19 @@
         <p>Email: <a href="mailto:marc.tchona@mines.sdsmt.edu">marc.tchona@mines.sdsmt.edu</a></p>
     </section>
 
+    <!-- Transcript/Resume -->
     <section id="transcript">
-        <h2>Current Transcript </h2>
+        <h2>Current Transcript</h2>
         <p>
-            You can view or download my unofficial transcript here: 
+            You can view or download my unofficial transcript here:
             <a href="documents/transcript.pdf" target="_blank" download>Download Transcript</a>
         </p>
         <p>
             You can view or download my resume here:
             <a href="documents/My Resume.pdf" target="_blank" download>Download Resume</a>
-
         </p>
     </section>
-    
 
-    <script src="script.js"></script>
+    <script src="script.js?v=1"></script>
 </body>
 </html>
-
