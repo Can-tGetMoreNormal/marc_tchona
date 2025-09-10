@@ -98,7 +98,7 @@ form button:hover { background-color: #0056b3; }
 /* Video wrapper (no crop) */
 .video-figure {
   width: 100%;
-  max-width: 640px;
+  max-width: 360px;
   margin: 12px auto 6px;
 }
 .video-figure video {
@@ -108,5 +108,6 @@ form button:hover { background-color: #0056b3; }
 }
 
 /* You already have .media-figure, .project-image, .caption */
+
 
 
