@@ -1,42 +1,42 @@
+// (optional) smooth scroll for in-page anchors
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function(event) {
-        event.preventDefault();
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth"
-        });
-    });
+  anchor.addEventListener("click", e => {
+    e.preventDefault();
+    const el = document.querySelector(anchor.getAttribute("href"));
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  });
 });
 
-
+/* -------- Pan / Zoom for UI image -------- */
 (function () {
   const viewport = document.querySelector('.pz-viewport');
   const img = document.querySelector('.pz-image');
   if (!viewport || !img) return;
 
-  // Initial state
-  let scale = 1.8;         // start zoomed-in so users can pan immediately (tweak)
-  let minScale = 1;        // minimum zoom (fit-ish)
-  let maxScale = 4;        // maximum zoom
-  let x = 0, y = 0;        // pan offsets (in CSS pixels at current scale)
+  // State
+  let scale = 1.8;     // starting zoom (tweak)
+  let minScale = 1;    // recalculated on load/resize (fit)
+  const maxScale = 5;  // max zoom
+  let x = 0, y = 0;    // pan offsets
   let isDown = false;
   let startX = 0, startY = 0;
 
-  // Make sure image is positioned & scaled once it loads
+  // Helpers
   function fitAndCenter() {
     const vw = viewport.clientWidth;
     const vh = viewport.clientHeight;
-
-    // Compute minScale so the entire image would *just* fit (contain)
     const naturalW = img.naturalWidth || img.width;
     const naturalH = img.naturalHeight || img.height;
+
+    // Min scale to fully fit (contain)
     const scaleW = vw / naturalW;
     const scaleH = vh / naturalH;
     minScale = Math.min(scaleW, scaleH);
 
-    // If current scale is less than min, bump it
+    // Ensure current scale not below min
     scale = Math.max(scale, minScale);
 
-    // Center image if smaller than viewport in either dimension
+    // Center if image smaller than viewport
     const imgW = naturalW * scale;
     const imgH = naturalH * scale;
     x = Math.max((vw - imgW) / 2, 0);
@@ -51,7 +51,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const imgW = img.naturalWidth * scale;
     const imgH = img.naturalHeight * scale;
 
-    // If image smaller than viewport in a dimension, center it; else clamp
     if (imgW <= vw) {
       x = (vw - imgW) / 2;
     } else {
@@ -74,11 +73,72 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     img.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
   }
 
-  // Mouse drag
+  // Drag to pan (mouse)
   viewport.addEventListener('mousedown', (e) => {
     isDown = true;
     startX = e.clientX - x;
     startY = e.clientY - y;
   });
-  window.addEventListener('mousemove', (e
+  window.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    x = e.clientX - startX;
+    y = e.clientY - startY;
+    apply();
+  });
+  window.addEventListener('mouseup', () => { isDown = false; });
+  viewport.addEventListener('mouseleave', () => { isDown = false; });
 
+  // Touch to pan
+  viewport.addEventListener('touchstart', (e) => {
+    if (e.touches.length !== 1) return;
+    const t = e.touches[0];
+    isDown = true;
+    startX = t.clientX - x;
+    startY = t.clientY - y;
+  }, { passive: false });
+
+  viewport.addEventListener('touchmove', (e) => {
+    if (!isDown || e.touches.length !== 1) return;
+    const t = e.touches[0];
+    x = t.clientX - startX;
+    y = t.clientY - startY;
+    apply();
+  }, { passive: false });
+
+  viewport.addEventListener('touchend', () => { isDown = false; });
+
+  // Wheel to zoom (centered on cursor)
+  viewport.addEventListener('wheel', (e) => {
+    e.preventDefault();
+
+    const rect = viewport.getBoundingClientRect();
+    const cx = e.clientX - rect.left; // cursor within viewport
+    const cy = e.clientY - rect.top;
+
+    const prevScale = scale;
+    const delta = -e.deltaY;                // wheel up => zoom in
+    const zoomFactor = Math.exp(delta * 0.0012); // smooth exponential
+    scale = Math.min(maxScale, Math.max(minScale, scale * zoomFactor));
+
+    // Adjust pan so the point under cursor stays fixed
+    const sx = (cx - x) / prevScale;
+    const sy = (cy - y) / prevScale;
+    x = cx - sx * scale;
+    y = cy - sy * scale;
+
+    apply();
+  }, { passive: false });
+
+  // Double click to reset
+  viewport.addEventListener('dblclick', () => {
+    scale = Math.max(1.8, minScale);  // start zoom level
+    x = y = 0;
+    fitAndCenter();
+  });
+
+  // Init on load/resize
+  if (img.complete) fitAndCenter();
+  else img.addEventListener('load', fitAndCenter);
+
+  window.addEventListener('resize', fitAndCenter);
+})();
