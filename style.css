@@ -151,8 +151,8 @@ section {
 /* Pan/Zoom viewer */
 .pz-viewport {
   position: relative;
-  overflow: hidden;        /* crops to the frame */
-  touch-action: none;      /* enable custom touch gestures */
+  overflow: hidden;      /* crops to frame */
+  touch-action: none;    /* allow custom touch gestures */
   cursor: grab;
 }
 .pz-viewport:active { cursor: grabbing; }
@@ -160,13 +160,13 @@ section {
 .pz-image {
   position: absolute;
   top: 0; left: 0;
-  transform-origin: 0 0;   /* scale from top-left for easy math */
+  transform-origin: 0 0; /* easier math */
   user-select: none;
   -webkit-user-drag: none;
   will-change: transform;
 }
 
-/* Optional: subtle border & shadow (you already have one from .media-box) */
+
 
 
 
