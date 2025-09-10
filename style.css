@@ -94,3 +94,19 @@ form button:hover { background-color: #0056b3; }
   .project { transition: none; }
   .project:hover { transform: none; box-shadow: none; }
 }
+
+/* Video wrapper (no crop) */
+.video-figure {
+  width: 100%;
+  max-width: 640px;
+  margin: 12px auto 6px;
+}
+.video-figure video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* You already have .media-figure, .project-image, .caption */
+
+
