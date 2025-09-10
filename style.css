@@ -72,10 +72,10 @@ form button:hover { background-color: #0056b3; }
 
 /* Responsive crop frame below the video */
 .media-figure {
-  /* responsive 16:9 box up to 640px wide */
+  /* responsive 16:7 box up to 640px wide */
   width: 100%;
-  max-width: 640px;
-  aspect-ratio: 16 / 9;
+  max-width: 360px;
+  aspect-ratio: 16 / 7;
   margin: 12px auto 6px;
   overflow: hidden;         /* crop overflow */
   border-radius: 12px;
@@ -112,6 +112,7 @@ form button:hover { background-color: #0056b3; }
 }
 
 /* You already have .media-figure, .project-image, .caption */
+
 
 
 
