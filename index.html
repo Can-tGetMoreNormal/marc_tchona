@@ -46,26 +46,34 @@
             <a href="documents/Inventory Project.pdf" target="_blank" download>Inventory Project</a>
         </div>
 
-        <section id="video">
-            <h2>Project Demonstration</h2>
-            <video width="300" controls>
-                <source src="documents/gif.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+       <section id="video">
+  <h2>Project Demonstration</h2>
 
-            <!-- Image under the video -->
-            <figure class="media-figure">
-                <img
-                    src="documents/UI_Inventory_Project.png"
-                    alt="UI of the Inventory Project"
-                    loading="lazy"
-                    class="project-image"
-                />
-                <figcaption class="caption">UI of the Inventory Project</figcaption>
-            </figure>
-        </section>
-        <!-- Add more projects as needed -->
+      <!-- Video + its caption -->
+      <figure class="video-figure">
+        <video controls>
+          <source src="documents/gif.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <figcaption class="caption">
+          Demo of the OCR workflow: upload → parse line items → editable table.
+        </figcaption>
+      </figure>
+    
+      <!-- Image + its caption -->
+      <figure class="media-figure">
+        <img
+          src="documents/UI_Inventory_Project.png"
+          alt="UI of the Inventory Project"
+          loading="lazy"
+          class="project-image"
+        />
+        <figcaption class="caption">
+          Inventory UI: parsed rows with inline edits and export options.
+        </figcaption>
+      </figure>
     </section>
+
 
     <!-- Contact Section -->
     <section id="contact">
@@ -89,3 +97,4 @@
     <script src="script.js?v=1"></script>
 </body>
 </html>
+
