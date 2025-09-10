@@ -70,23 +70,36 @@ form button:hover { background-color: #0056b3; }
   border-radius: 5px;
 }
 
-/* Responsive crop frame below the video */
+/* Figure wrapper (auto height) */
 .media-figure {
-  /* responsive 16:7 box up to 640px wide */
   width: 100%;
-  max-width: 360px;
-  aspect-ratio: 16 / 7;
+  max-width: 640px;
   margin: 12px auto 6px;
-  overflow: hidden;         /* crop overflow */
+}
+
+/* Cropping box holds only the image */
+.media-box {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
   border-radius: 12px;
 }
-/* Make the image cover the frame */
+
+/* Image fills/crops inside the box */
 .project-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;        /* crop to fill */
-  object-position: center;  /* center the crop */
+  object-fit: cover;
+  object-position: center;
   display: block;
+}
+
+/* Caption styling (visible now) */
+.caption {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 6px;
+  text-align: center;
 }
 
 /* Respect users who prefer reduced motion */
@@ -112,6 +125,7 @@ form button:hover { background-color: #0056b3; }
 }
 
 /* You already have .media-figure, .project-image, .caption */
+
 
 
 
