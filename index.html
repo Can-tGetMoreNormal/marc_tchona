@@ -1,101 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Portfolio</title>
-    <link rel="stylesheet" href="style.css?v=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Portfolio</title>
+  <link rel="stylesheet" href="style.css?v=5" />
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <h1>Marc Tchona</h1>
-        <p>Electrical Engineering Senior| Passionate About Problem-Solving and Practical Design</p>
-    </header>
+  <!-- Header Section -->
+  <header>
+    <h1>Marc Tchona</h1>
+    <p>Electrical Engineering Senior | Passionate About Problem-Solving and Practical Design</p>
+  </header>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            I thrive on finding innovative solutions to challenges and am committed to continuous learning
-            and skill development. In my free time, I enjoy playing table tennis, chess, and the keyboard,
-            which provide unique opportunities to exercise discipline and creativity. These hobbies not only
-            keep me engaged but also contribute to my growth as a problem-solver and thinker.
-        </p>
-    </section>
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I thrive on finding innovative solutions to challenges and am committed to continuous learning
+      and skill development. In my free time, I enjoy playing table tennis, chess, and the keyboard,
+      which provide unique opportunities to exercise discipline and creativity. These hobbies not only
+      keep me engaged but also contribute to my growth as a problem-solver and thinker.
+    </p>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
 
-        <div class="project">
-            <h3>Smart-Cart Project</h3>
-            <p>
-                I, along with a team of four other students, developed a Smart Cart prototype for automated
-                checkout for our final project as part of the Mechatronics coursework.
-            </p>
-            <a href="documents/Smart Cart Project.pdf" target="_blank" download>Smart Cart Project</a>
+    <div class="project">
+      <h3>Smart-Cart Project</h3>
+      <p>
+        I, along with a team of four other students, developed a Smart Cart prototype for automated
+        checkout for our final project as part of the Mechatronics coursework.
+      </p>
+      <a href="documents/Smart Cart Project.pdf" target="_blank" download>Smart Cart Project</a>
+    </div>
+
+    <div class="project">
+      <h3>Inventory Project</h3>
+      <p>
+        I developed an OCR-driven inventory management system to process purchase orders in a
+        specialized PDF format.
+      </p>
+      <a href="documents/Inventory Project.pdf" target="_blank" download>Inventory Project</a>
+    </div>
+
+    <!-- Video + Image section -->
+    <section id="video">
+      <h2>Project Demonstration</h2>
+
+      <!-- Video + its caption -->
+      <figure class="video-figure">
+        <video controls>
+          <source src="documents/gif.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <figcaption class="caption">Demonstration of Smart Cart Process.</figcaption>
+      </figure>
+
+      <!-- Image + its caption -->
+      <figure class="media-figure">
+        <div class="media-box">
+          <img
+            src="documents/UI_Inventory_Project.png"
+            alt="UI of the Inventory Project"
+            loading="lazy"
+            class="project-image"
+          />
         </div>
-
-        <div class="project">
-            <h3>Inventory Project</h3>
-            <p>
-                I developed an OCR-driven inventory management system to process purchase orders in a
-                specialized PDF format.
-            </p>
-            <a href="documents/Inventory Project.pdf" target="_blank" download>Inventory Project</a>
-        </div>
-
-        <section id="video">
-            <h2>Project Demonstration</h2>
-
-            <!-- Video + its caption -->
-            <figure class="video-figure">
-                <video controls>
-                    <source src="documents/gif.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption class="caption">
-                    Demonstration of Smart Cart Process.
-                </figcaption>
-            </figure>
-
-           <!-- Image + its caption -->
-            <figure class="media-figure">
-              <div class="media-box">
-                <img
-                  src="documents/UI_Inventory_Project.png"
-                  alt="UI of the Inventory Project"
-                  loading="lazy"
-                  class="project-image"
-                />
-              </div>
-              <figcaption class="caption">Inventory UI</figcaption>
-            </figure>
-
-    </section> <!-- ← Added missing closing tag for #projects -->
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:marc.tchona@mines.sdsmt.edu">marc.tchona@mines.sdsmt.edu</a></p>
+        <figcaption class="caption">Inventory UI</figcaption>
+      </figure>
     </section>
+  </section>
 
-    <!-- Transcript/Resume -->
-    <section id="transcript">
-        <h2>Current Transcript</h2>
-        <p>
-            You can view or download my unofficial transcript here:
-            <a href="documents/transcript.pdf" target="_blank" download>Download Transcript</a>
-        </p>
-        <p>
-            You can view or download my resume here:
-            <a href="documents/My Resume.pdf" target="_blank" download>Download Resume</a>
-        </p>
-    </section>
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:marc.tchona@mines.sdsmt.edu">marc.tchona@mines.sdsmt.edu</a></p>
+  </section>
 
-    <script src="script.js?v=1"></script>
+  <!-- Transcript/Resume -->
+  <section id="transcript">
+    <h2>Current Transcript</h2>
+    <p>
+      You can view or download my unofficial transcript here:
+      <a href="documents/transcript.pdf" target="_blank" download>Download Transcript</a>
+    </p>
+    <p>
+      You can view or download my resume here:
+      <a href="documents/My Resume.pdf" target="_blank" download>Download Resume</a>
+    </p>
+  </section>
+
+  <script src="script.js?v=1"></script>
 </body>
 </html>
-
-
